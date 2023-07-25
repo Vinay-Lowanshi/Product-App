@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../include/header.ejs') %>
+    <title>Vertical Product List</title>
+    <style>
+        /* Grid container */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            border: 2px solid green;
+        }
+
+        /* Styling for each product item */
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 3px solid red;
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: #555;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <div class="product-list">
+        <% result.forEach(function(product, index) { %>
+        <div class="product-item">
+            <img class="product-image" src="<%= product.image %>" alt="Product <%= index + 1 %>">
+            <div class="product-details">
+                <p class="product-name"><%= product.name %></p>
+                <p class="product-price">$<%= product.price %></p>
+
+            </div>
+<button class="delete-button"  onclick="deleteProduct('<%= product._id %>')">Delete</button>
+        </div>
+        <% }) %>
+    </div>
+
+    <script>
+        function deleteProduct(productId) {
+          // Generate the URL with the product ID as a parameter
+          const deleteUrl = `/delete/${productId}`;
+      
+          // Navigate to the deleteUrl
+          window.location.href = deleteUrl;
+        }
+      </script>
+
+</body>
+</html>
