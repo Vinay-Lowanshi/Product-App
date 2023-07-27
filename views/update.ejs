@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../include/header.ejs') %>
+    <h2>Product Details</h2>
+    <form method="post" action="/update">
+        <label for="productId">Product id:</label>
+        <input type="text" id="productId" name="productid" value = "<%=id%>" required>
+        <br>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required>
+        <br>
+
+        <label for="productImage">Product Image URL:</label>
+        <input type="url" id="productImage" name="productImage" required>
+        <br>
+
+        <label for="productPrice">Price:</label>
+        <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+        <br>
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

@@ -7,13 +7,18 @@ const about = require('../Componants/about.js');
 const home = require('../Componants/home.js');
 const { submit } = require('../Componants/submit.js');
 const deleteProduct = require('../models/delete.js');
+const productUpdate=require('../Componants/productUpdate.js');
+const update=require('../models/update.js')
+
 
 router.get('/admin', admin);
 router.get('/addproduct', addproduct);
 router.post('/submit', submit);
 router.get('/product', products);
 router.get('/about', about);
-router.delete('/products/:id', deleteProduct);
+router.get('/delete/:id', deleteProduct);
 router.get('/', home);
+router.get('/productUpdate/:id',productUpdate);
+router.post('/update',update)
 
 module.exports = router;

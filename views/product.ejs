@@ -48,6 +48,18 @@
             margin-top: 10px;
             cursor: pointer;
         }
+        .edit-button {
+            background-color: #36f492;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
 
         body {
             margin: 0;
@@ -67,6 +79,7 @@
 
             </div>
 <button class="delete-button"  onclick="deleteProduct('<%= product._id %>')">Delete</button>
+<button class="edit-button"  onclick="updateProduct('<%= product._id %>')">Edit</button>
         </div>
         <% }) %>
     </div>
@@ -78,6 +91,13 @@
       
           // Navigate to the deleteUrl
           window.location.href = deleteUrl;
+        }
+        function updateProduct(productId) {
+          // Generate the URL with the product ID as a parameter
+          const updateUrl = `/productUpdate/${productId}`;
+      
+          // Navigate to the deleteUrl
+          window.location.href = updateUrl;
         }
       </script>
 
